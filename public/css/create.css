@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    width: 810px; /* Set width of the container */
+    height: 560px; /* Set height of the container */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Center items horizontally */
+    background-color: #b5eee4; /* Background color for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Padding inside the container */
+}
+
+.header {
+    display: flex; /* Use flex for alignment */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width for the header */
+    justify-content: space-between; /* Space between back link and title */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+h1 {
+    color: #333; /* Dark text color for heading */
+    text-align: center; /* Centered heading */
+    flex-grow: 1; /* Allow h1 to grow and fill space */
+}
+
+.back-link {
+    display: flex; /* Use flex for alignment */
+    align-items: center; /* Center items vertically */
+    color: brown; /* Link color */
+    text-decoration: none; /* No underline */
+    font-size: 20px; /* Increase font size */
+    padding: 10px; /* Add padding */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.back-link i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+form {
+    background-color: #d8faf5; /* Light background for the form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: grid; /* Use grid layout for form items */
+    grid-template-columns: 1fr; /* One column layout */
+    grid-gap: 20px; /* Space between grid items */
+    width: 100%; /* Full width for the form */
+}
+
+label {
+    font-weight: bold; /* Make labels bold */
+}
+
+input[type="text"],
+textarea {
+    width: 100%; /* Full width inputs */
+    margin: 0; /* No margin */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+}
+
+textarea {
+    height: 200px; /* Adjust height of textarea */
+    padding: 10px; /* Add padding for textarea */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Border color on focus */
+    outline: none; /* Remove outline */
+}
+
+button {
+    background-color: #007bff; /* Button color */
+    color: white; /* Button text color */
+    padding: 20px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for button */
+    font-size: 16px; /* Font size for button */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker button on hover */
+}
+
+#charCount {
+    font-size: 14px; /* Font size for character count */
+    text-align: right; /* Align character count to the right */
+}
+
+#limitWarning {
+    font-size: 14px; /* Font size for limit warning */
+    color: red; /* Red color for warning */
+    display: none; /* Hide by default */
+}
+
+.alert {
+    color: red; /* Red color for alert messages */
+    margin-bottom: 20px; /* Space below alert */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .container {
+        padding: 15px; /* Reduce padding around container */
+    }
+
+    form {
+        padding: 15px; /* Reduce padding inside the form */
+    }
+
+    button {
+        padding: 8px; /* Reduce button padding */
+    }
+}

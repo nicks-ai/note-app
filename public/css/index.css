@@ -1,0 +1,177 @@
+/* Body and container styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* Light background for contrast */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px; /* Maximum width for the container */
+    height: 560px;
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #b5eee4; /* Light background for the container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Heading styles */
+h1 {
+    color: #333; /* Darker text for the heading */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Anchor link styles */
+a {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* General button styles */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 10px; /* Space between buttons */
+}
+
+/* Create Button Styles */
+.create-button {
+    background-color: green; /* Green color for create button */
+    color: white; /* White text for the button */
+}
+
+.create-button:hover {
+    background-color: darkgreen; /* Darker shade on hover */
+}
+
+/* Delete Button Styles */
+.delete-button {
+    display: none; /* Initially hidden */
+    background-color: red; /* Red color for delete button */
+    color: white; /* White text for the button */
+}
+
+.delete-button:hover {
+    background-color: darkred; /* Darker shade on hover */
+}
+
+/* Success message styling */
+.success-message {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+    padding: 10px;
+    border: 1px solid #c3e6cb; /* Green border */
+    border-radius: 4px;
+    margin-bottom: 20px; /* Space below the success message */
+}
+
+/* Style for the list of notes */
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+li {
+    margin-bottom: 15px; /* Space between notes */
+}
+
+li a {
+    display: block; /* Makes the link fill the entire list item */
+    background-color: #ffffff; /* White background for each note */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effect */
+}
+
+li a:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Title and content styles */
+h2 {
+    margin: 0 0 10px; /* Margin below the title */
+    font-size: 18px; /* Font size for title */
+    color: #333; /* Darker color for readability */
+}
+
+p {
+    margin: 5px 0; /* Space between paragraphs */
+    color: #555; /* Gray color for additional text */
+}
+
+/* Back link styling */
+a.back-link {
+    margin-top: 10px; /* Space above the back link */
+    display: inline-block; /* Block display for better alignment */
+    color: #007bff; /* Link color */
+}
+
+/* Button container styles */
+.button-container {
+    position: fixed; /* Make sure the button stays fixed on screen */
+    bottom: 20px; /* Position the button 20px from the bottom */
+    left: 50%; /* Position at the horizontal center */
+    transform: translateX(-50%); /* Center the button horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure the button is above all content */
+}
+
+/* Sticky Create Button Styles */
+.create-button {
+    background-color: green; /* Bootstrap primary color */
+    color: white; /* White icon color */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+    transition: background-color 0.3s ease;
+}
+
+.create-button i {
+    font-size: 24px; /* Size of the icon */
+    color: white; /* Icon color */
+}
+
+/* Checkbox styles */
+.hidden-checkbox {
+    display: none; /* Completely hide the checkbox */
+}
+
+/* Style for the select all label */
+.select-all-label {
+    cursor: pointer; /* Pointer cursor for label */
+    margin-left: 10px; /* Space between checkbox and label */
+    display: none; /* Initially hidden */
+}
+
+/* Optional: Additional styling for the select icon */
+.select-icon {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none; /* Class to hide elements */
+}
+
+/* Make note titles bold */
+.note-title {
+    font-weight: bold; /* Makes the title bold */
+}
