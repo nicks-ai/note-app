@@ -3,41 +3,73 @@ body {
     background-color: #f0f0f0; /* Light gray background */
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full height */
     display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically */
+    min-height: 100vh; /* Ensure full height of the viewport */
 }
 
 .container {
-    width: 70%; /* Half width */
-    height: 80%; /* Full height */
+    width: 100%; /* Full width on small screens */
+    max-width: 800px; /* Maximum width for larger screens */
+    height: 100%; /* Full height on small screens */
+    max-height: 90vh; /* Limit height on larger screens */
     padding: 20px;
-    background: #b5f0d0; /* Background color for the container */
+    background: #7ddfdf; /* Background color for the container */
     border-radius: 0; /* No rounding */
     box-shadow: none; /* No shadow */
     overflow-y: auto; /* Enable scrolling if content overflows */
-    margin: auto; /* Center the container vertically */
 }
 
 h1 {
     color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 45px; /* Set font size to 45px */
+    margin-bottom: 20px; /* Add space below the title */
+    text-align: center; /* Center the text */
 }
 
 .actions {
-    margin-bottom: 15px;
+    margin-bottom: 1px;
 }
 
-a {
+.actions a {
     text-decoration: none;
-    color: #007bff;
-    margin-right: 10px;
-    font-size: 36px; /* Increase icon size */
+    color: #061424;
+    margin-right: 0%; /* Increase space between buttons */
+    font-size: 10px; /* Text font size */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center icons and text vertically */
+    padding: 10px 15px; /* Optional: add padding to make the button area bigger */
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+    font-size: 40px !important; /* Force larger icon size */
+    line-height: 1; /* Align icon better with text */
 }
 
 .error-messages {
     color: red;
     margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex; /* Use flex for alignment */
+    flex-direction: column; /* Stack label and input vertically */
+    align-items: center; /* Center align the label and input horizontally */
+    margin-bottom: 2px; /* Space below each form group */
+}
+
+label {
+    font-weight: bold; /* Make labels bold */
+    font-size: 26px; /* Increase font size for labels */
+    margin-bottom: 5px; /* Space below labels */
+    text-align: center; /* Center the text in the label */
+    width: 100%; /* Full width to ensure centering */
 }
 
 input[type="text"],
@@ -67,10 +99,38 @@ button:hover {
     background-color: #0abe22af; /* Darker shade for hover effect */
 }
 
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+.button-container {
+    display: flex;
+    justify-content: flex-start; /* Adjust the alignment */
+    margin-top: 20px; /* Space above the button container */
+    position: sticky; /* Make the button sticky */
+    bottom: 0; /* Stick to the bottom of the container */
+    background: #7ddfdf; /* Match the container's background */
+    padding: 10px; /* Padding for better spacing */
+    z-index: 10; /* Ensure it stays above other content */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Reduce padding on small screens */
+        max-height: 100vh; /* Full height on small screens */
+    }
+
+    h1 {
+        font-size: 30px; /* Adjust heading size for small screens */
+    }
+
+    label {
+        font-size: 20px; /* Smaller label size for small screens */
+    }
+
+    input[type="text"],
+    textarea {
+        font-size: 14px; /* Adjust input font size for small screens */
+    }
+
+    button {
+        padding: 10px; /* Adjust button padding for small screens */
+    }
 }

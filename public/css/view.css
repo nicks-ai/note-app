@@ -18,66 +18,89 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%; /* Full width */
+    width: 80%; /* Width for larger screens */
     height: 100%; /* Full height */
-    max-width: none; /* Remove max-width for full screen */
-    max-height: none; /* Remove max-height for full screen */
-    overflow: auto; /* Allow scrolling if content exceeds */
+    max-width: 800px; /* Max width */
+    overflow: hidden; /* Hide overflow */
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 100%; /* Full width on small screens */
+        height: 100vh; /* Full height on small screens */
+    }
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+    font-size: 2.5rem; /* Responsive font size */
+    color: #333; /* Dark text color for heading */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below heading */
 }
 
+/* Actions Section */
 .actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Align items to left and right */
+    align-items: center; /* Vertically center the buttons */
     margin-bottom: 20px;
 }
 
-.left-actions a,
-.right-actions button {
-    text-decoration: none;
-    color: #333; /* Change text color to something visible */
-    background-color: transparent; /* Remove background color */
-    border: none; /* Remove border */
-    padding: 12px 20px; /* Enlarged button padding */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 18px; /* Larger font size */
+.button-container {
+    display: flex; /* Make buttons line up horizontally */
+    gap: 20px; /* Space between buttons */
 }
 
-.left-actions a:hover,
-.right-actions button:hover {
+.button-container a,
+.button-container button {
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    padding: 12px 20px; /* Enlarged padding for buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container a {
+    font-size: 33px; /* Set font size for Back and Edit buttons */
+}
+
+.button-container button {
+    font-size: 24px; /* Set font size for Delete button */
+}
+
+.button-container a:hover,
+.button-container button:hover {
     background-color: #f4f5f7; /* Add hover effect */
 }
 
-.note-box {
-    border-top: 1px solid #eaeaea;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    margin-top: 15px;
-    width: 100%;
-    height: calc(100% - 100px); /* Adjust height to fit within container */
-    overflow-y: auto; /* Scroll if content exceeds */
-}
-
-.note-box p {
-    margin: 10px 0;
-    color: #555;
-}
-
-.left-actions a i,
-.right-actions button i {
+.button-container i {
     margin-right: 5px;
     vertical-align: middle;
 }
 
-/* Textarea styles */
+/* Note Box */
+.note-box {
+    border-top: 1px solid #eaeaea; /* Top border for note box */
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background for note box */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 15px; /* Space above the note box */
+    height: calc(100% - 150px); /* Adjust height to allow for other elements */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds */
+}
+
+/* Note content */
+.note-box p {
+    margin: 10px 0; /* Space between paragraphs */
+    color: #555; /* Darker text for note content */
+    font-size: 18px; /* Font size for notes */
+    white-space: normal; /* Allow wrapping */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+}
+
+/* Textarea Styles */
 textarea {
     width: 100%;
     min-height: 100px; 
@@ -88,4 +111,33 @@ textarea {
     resize: none;
     overflow: hidden;
     font-size: 16px;
+    white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+}
+
+button i {
+    font-size: 28px; /* Larger icon size in buttons */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2rem; /* Slightly smaller for medium screens */
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 1.8rem; /* Smaller for smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .submit-button {
+        padding: 8px; /* Reduce button padding */
+        font-size: 0.8rem; /* Smaller button font */
+    }
 }

@@ -29,23 +29,21 @@
         <div class="container">
             <h1>{{ $note->title }}</h1>
             <div class="actions">
-                <div class="left-actions">
+                <div class="button-container"> <!-- New container for all buttons -->
                     <a href="{{ route('notes.index') }}" title="Back">
-                        <i class="fas fa-arrow-left"></i>
+                        <i class="fas fa-arrow-left"></i> 
                     </a>
                     <a href="{{ route('notes.edit', $note->id) }}" title="Edit">
-                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-edit"></i> 
                     </a>
                 </div>
-                <div class="right-actions">
-                    <form action="{{ route('notes.destroy', $note->id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" title="Delete">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </form>
-                </div>
+                <form action="{{ route('notes.destroy', $note->id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" title="Delete">
+                        <i class="fas fa-trash"></i> 
+                    </button>
+                </form>
             </div>
             <div class="note-box">
                 <p>{{ $note->created_at->format('m/d/Y h:i A') }}</p>

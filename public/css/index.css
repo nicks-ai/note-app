@@ -2,15 +2,21 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0; /* Light background for contrast */
-    margin: 0;
-    padding: 20px;
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    display: flex; /* Use flexbox for body layout */
+    justify-content: center; /* Center container horizontally */
+    align-items: center; /* Center container vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
 }
 
 .container {
-    max-width: 800px; /* Maximum width for the container */
-    height: 560px;
+    width: 90%; /* Adjust width for larger screens */
+    max-width: 800px; /* Maximum width for larger screens */
+    height: 100vh; /* Full height of the viewport */
     margin: 0 auto; /* Center the container */
-    padding: 20px;
+    padding: 20px; /* Padding around the content */
+    overflow-y: auto; /* Enable scrolling if content overflows */
     background-color: #b5eee4; /* Light background for the container */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -18,9 +24,27 @@ body {
 
 /* Heading styles */
 h1 {
+    font-size: 2.5rem; /* Responsive font size */
     color: #333; /* Darker text for the heading */
     text-align: center;
     margin-bottom: 20px;
+}
+
+/* Search Input Styles */
+#search-input {
+    width: 80%; /* Full width to match the container */
+    padding: 10px; /* Padding inside the input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 1rem; /* Font size for readability */
+    margin-bottom: 20px; /* Space below the search input */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: border-color 0.3s; /* Smooth transition for border color on focus */
+}
+
+#search-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
 }
 
 /* Anchor link styles */
@@ -29,18 +53,14 @@ a {
     color: #007bff; /* Bootstrap primary color */
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 /* General button styles */
 button {
-    padding: 10px 15px;
+    padding: 10px 15px; /* Adjusted padding for buttons */
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 1rem; /* Responsive font size */
+    transition: background-color 0.1s;
     margin-left: 10px; /* Space between buttons */
 }
 
@@ -48,27 +68,29 @@ button {
 .create-button {
     background-color: green; /* Green color for create button */
     color: white; /* White text for the button */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+    transition: background-color 0.3s ease;
 }
 
 .create-button:hover {
-    background-color: darkgreen; /* Darker shade on hover */
+    background-color: darkgreen; /* Darker color on hover */
 }
 
-/* Delete Button Styles */
-.delete-button {
-    display: none; /* Initially hidden */
-    background-color: red; /* Red color for delete button */
-    color: white; /* White text for the button */
-}
-
-.delete-button:hover {
-    background-color: darkred; /* Darker shade on hover */
+.create-button i {
+    font-size: 1.5rem; /* Icon size */
+    color: white; /* Icon color */
 }
 
 /* Success message styling */
 .success-message {
     background-color: #d4edda; /* Light green background */
-    color: #155724; /* Dark green text */
+    color: #05270d; /* Dark green text */
     padding: 10px;
     border: 1px solid #c3e6cb; /* Green border */
     border-radius: 4px;
@@ -83,16 +105,20 @@ ul {
 }
 
 li {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between title and delete button */
+    align-items: center; /* Center items vertically */
     margin-bottom: 15px; /* Space between notes */
 }
 
 li a {
-    display: block; /* Makes the link fill the entire list item */
+    display: block; /* Make the link fill the entire list item */
     background-color: #ffffff; /* White background for each note */
     padding: 20px;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effect */
+    flex: 1; /* Allow the link to grow and take available space */
 }
 
 li a:hover {
@@ -101,10 +127,10 @@ li a:hover {
 }
 
 /* Title and content styles */
-h2 {
-    margin: 0 0 10px; /* Margin below the title */
-    font-size: 18px; /* Font size for title */
-    color: #333; /* Darker color for readability */
+.note-title {
+    font-weight: bold; /* Make title bold */
+    color: #333;
+    font-size: 1.75rem; /* Responsive font size */
 }
 
 p {
@@ -112,66 +138,86 @@ p {
     color: #555; /* Gray color for additional text */
 }
 
-/* Back link styling */
-a.back-link {
-    margin-top: 10px; /* Space above the back link */
-    display: inline-block; /* Block display for better alignment */
-    color: #007bff; /* Link color */
-}
-
 /* Button container styles */
-.button-container {
-    position: fixed; /* Make sure the button stays fixed on screen */
-    bottom: 20px; /* Position the button 20px from the bottom */
-    left: 50%; /* Position at the horizontal center */
-    transform: translateX(-50%); /* Center the button horizontally */
+.fixed-button-container {
+    position: fixed; /* Keep button fixed on screen */
+    bottom: 20px; /* Position button 20px from bottom */
+    left: 50%; /* Horizontal center */
+    transform: translateX(-50%); /* Center button horizontally */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Ensure the button is above all content */
+    z-index: 1000; /* Ensure button is above all content */
 }
 
-/* Sticky Create Button Styles */
-.create-button {
-    background-color: green; /* Bootstrap primary color */
-    color: white; /* White icon color */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Circular button */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
-    transition: background-color 0.3s ease;
+/* Delete button styles */
+.delete-container {
+    margin-left: auto; /* Push delete button to the right */
 }
 
-.create-button i {
-    font-size: 24px; /* Size of the icon */
-    color: white; /* Icon color */
+.delete-button {
+    background-color: transparent; /* Make button background transparent */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #b34646; /* Red color for delete icon */
+    transition: color 0.3s; /* Smooth transition for color */
 }
 
-/* Checkbox styles */
-.hidden-checkbox {
-    display: none; /* Completely hide the checkbox */
+.delete-button:hover {
+    color: darkred; /* Darker red on hover */
 }
 
-/* Style for the select all label */
-.select-all-label {
-    cursor: pointer; /* Pointer cursor for label */
-    margin-left: 10px; /* Space between checkbox and label */
-    display: none; /* Initially hidden */
+/* Responsive Styles */
+@media (max-width: 800px) {
+    .container {
+        width: 95%; /* Full width for smaller screens */
+        height: 100vh; /* Full height for smaller screens */
+        padding: 15px; /* Reduce padding */
+    }
+
+    h1 {
+        font-size: 2rem; /* Smaller heading on medium devices */
+    }
+
+    .create-button {
+        width: 45px; /* Adjust button size for smaller screens */
+        height: 45px;
+    }
+
+    .note-title {
+        font-size: 1.5rem; /* Smaller note title */
+    }
+
+    button {
+        font-size: 0.9rem; /* Smaller button text */
+    }
 }
 
-/* Optional: Additional styling for the select icon */
-.select-icon {
-    cursor: pointer;
-}
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Full width for very small screens */
+        height: 100vh; /* Full height for very small screens */
+        padding: 10px; /* Further reduce padding */
+    }
 
-.hidden {
-    display: none; /* Class to hide elements */
-}
+    h1 {
+        font-size: 1.5rem; /* Even smaller heading on small devices */
+    }
 
-/* Make note titles bold */
-.note-title {
-    font-weight: bold; /* Makes the title bold */
+    .create-button {
+        width: 40px; /* Adjust button size */
+        height: 40px;
+    }
+
+    .note-title {
+        font-size: 1.25rem; /* Even smaller note title */
+    }
+
+    p {
+        font-size: 0.875rem; /* Smaller paragraph text */
+    }
+
+    button {
+        font-size: 0.875rem; /* Smaller button text */
+    }
 }

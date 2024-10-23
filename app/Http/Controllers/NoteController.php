@@ -2,74 +2,74 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Note; // Ensure you have the Note model
+use App\Models\Note; 
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
-    // Display a listing of the notes
+
     public function index()
     {
-        $notes = Note::all(); // Fetch all notes
-        return view('notes.index', compact('notes')); // Pass notes to the view
+        $notes = Note::all(); 
+        return view('notes.index', compact('notes')); 
     }
 
-    // Show the form for creating a new note
+    
     public function create()
     {
-        return view('notes.create'); // Return the create view
+        return view('notes.create'); 
     }
 
-    // Store a newly created note in the database
+
     public function store(Request $request)
     {
-        // Validate the incoming request data
+        
         $request->validate([
-            'title' => 'nullable|max:50', // Allow title to be nullable
-            'notes' => 'required|max:10000' // Ensure notes are required
+            'title' => 'nullable|max:50',
+            'notes' => 'required|max:10000' 
         ], [
-            'title.max' => 'The title may not be greater than 50 characters.', // Custom message for title limit
-            'notes.required' => 'The notes field is required.', // Custom message for required notes
-            'notes.max' => 'The notes may not be greater than 10,000 characters.' // Custom message for notes limit
+            'title.max' => 'The title may not be greater than 50 characters.',
+            'notes.required' => 'The notes field is required.',
+            'notes.max' => 'The notes may not be greater than 10,000 characters.'
         ]);
 
-        // Set title to 'Untitled' if not provided
+        
         $title = $request->title ?: 'Untitled';
 
-        // Create a new note
+        
         Note::create([
             'title' => $title,
-            'notes' => $request->notes, // Save the content as 'notes'
+            'notes' => $request->notes,
         ]);
 
-        return redirect()->route('notes.index')->with('success', 'Note created successfully!'); // Redirect with a success message
+        return redirect()->route('notes.index')->with('success', 'Note created successfully!');
     }
 
-    // Display a specific note
+   
     public function show($id)
     {
-        $note = Note::findOrFail($id); // Find the note by ID
-        return view('notes.view', compact('note')); // Pass the note to the show view
+        $note = Note::findOrFail($id); 
+        return view('notes.view', compact('note')); 
     }
 
-    // Show the form for editing a specific note
+  
     public function edit($id)
     {
-        $note = Note::findOrFail($id); // Find the note by ID
-        return view('notes.edit', compact('note')); // Pass the note to the edit view
+        $note = Note::findOrFail($id); 
+        return view('notes.edit', compact('note')); 
     }
 
-    // Update a specific note in the database
+   
     public function update(Request $request, $id)
     {
-        // Validate the incoming request data
+        
         $request->validate([
-            'title' => 'nullable|max:50', // Title is optional
-            'notes' => 'required|max:10000', // Ensure notes are required
+            'title' => 'nullable|max:50', 
+            'notes' => 'required|max:10000',
         ], [
-            'title.max' => 'The title may not be greater than 50 characters.', // Custom message for title limit
-            'notes.required' => 'The notes field is required.', // Custom message for required notes
-            'notes.max' => 'The notes may not be greater than 10,000 characters.' // Custom message for notes limit
+            'title.max' => 'The title may not be greater than 50 characters.', 
+            'notes.required' => 'The notes field is required.', 
+            'notes.max' => 'The notes may not be greater than 10,000 characters.' 
         ]);
 
         $note = Note::findOrFail($id); // Find the note by ID

@@ -1,133 +1,108 @@
+/* Body and container styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: white;
-    margin: 0;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* Light background for contrast */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    display: flex; /* Use flexbox for body layout */
+    justify-content: center; /* Center container horizontally */
+    align-items: center; /* Center container vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
 }
 
 .container {
-    width: 810px; /* Set width of the container */
-    height: 560px; /* Set height of the container */
+    width: 100%; /* Set to full width */
+    max-width: 800px; /* Maximum width for larger screens */
+    height: 98vh; /* Set to full height of the viewport */
     margin: 0 auto; /* Center the container */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align items to the start */
-    align-items: center; /* Center items horizontally */
-    background-color: #b5eee4; /* Background color for the container */
+    background-color: #69dac9; /* Background color for the container */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     padding: 20px; /* Padding inside the container */
+    display: flex; /* Flexbox for vertical alignment */
+    flex-direction: column; /* Stack children vertically */
+    overflow: hidden; /* Hide overflow */
 }
 
-.header {
-    display: flex; /* Use flex for alignment */
-    align-items: center; /* Center items vertically */
-    width: 100%; /* Full width for the header */
-    justify-content: space-between; /* Space between back link and title */
-    margin-bottom: 20px; /* Space below the header */
+.note-form {
+    display: grid; /* Set the form to use grid layout */
+    grid-template-columns: 1fr; /* One column layout */
+    gap: 15px; /* Space between items */
+    flex-grow: 1; /* Allow form to take available space */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds */
 }
 
+/* Text and button styles */
 h1 {
     color: #333; /* Dark text color for heading */
-    text-align: center; /* Centered heading */
-    flex-grow: 1; /* Allow h1 to grow and fill space */
-}
-
-.back-link {
-    display: flex; /* Use flex for alignment */
-    align-items: center; /* Center items vertically */
-    color: brown; /* Link color */
-    text-decoration: none; /* No underline */
-    font-size: 20px; /* Increase font size */
-    padding: 10px; /* Add padding */
-    border-radius: 4px; /* Rounded corners */
-}
-
-.back-link i {
-    margin-right: 5px; /* Space between icon and text */
-}
-
-form {
-    background-color: #d8faf5; /* Light background for the form */
-    padding: 20px; /* Padding inside the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    display: grid; /* Use grid layout for form items */
-    grid-template-columns: 1fr; /* One column layout */
-    grid-gap: 20px; /* Space between grid items */
-    width: 100%; /* Full width for the form */
-}
-
-label {
-    font-weight: bold; /* Make labels bold */
+    font-size: 2.5rem; /* Responsive font size */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below heading */
 }
 
 input[type="text"],
 textarea {
     width: 100%; /* Full width inputs */
-    margin: 0; /* No margin */
     padding: 10px; /* Padding for inputs */
     border: 1px solid #ccc; /* Border for inputs */
     border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size for inputs */
+    font-size: 1rem; /* Responsive font size */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 textarea {
-    height: 200px; /* Adjust height of textarea */
-    padding: 10px; /* Add padding for textarea */
+    min-height: 20vh; /* Minimum height of 20% of viewport height */
+    max-height: 50vh; /* Maximum height of 50% of viewport height */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
 }
 
-input[type="text"]:focus,
-textarea:focus {
+/* Focus styles */
+textarea:focus, 
+input[type="text"]:focus {
     border-color: #007bff; /* Border color on focus */
     outline: none; /* Remove outline */
 }
 
-button {
-    background-color: #007bff; /* Button color */
+/* Button styles */
+.submit-button {
+    position: sticky; /* Make the button sticky */
+    bottom: 0; /* Stick it to the bottom of the container */
+    background-color: green; /* Button background color */
     color: white; /* Button text color */
-    padding: 20px; /* Padding for button */
+    padding: 0; /* Padding for button */
     border: none; /* Remove border */
     border-radius: 4px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor for button */
-    font-size: 16px; /* Font size for button */
+    font-size: 1rcap; /* Responsive font size */
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-top: 20px; /* Space above the button */
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker button on hover */
-}
-
-#charCount {
-    font-size: 14px; /* Font size for character count */
-    text-align: right; /* Align character count to the right */
-}
-
-#limitWarning {
-    font-size: 14px; /* Font size for limit warning */
-    color: red; /* Red color for warning */
-    display: none; /* Hide by default */
-}
-
-.alert {
-    color: red; /* Red color for alert messages */
-    margin-bottom: 20px; /* Space below alert */
+.submit-button:hover {
+    background-color: darkgreen; /* Darker button on hover */
 }
 
 /* Responsive design */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2rem; /* Slightly smaller for medium screens */
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 1.8rem; /* Smaller for smaller screens */
+    }
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px; /* Reduce padding for smaller screens */
     }
 
-    .container {
-        padding: 15px; /* Reduce padding around container */
-    }
-
-    form {
-        padding: 15px; /* Reduce padding inside the form */
-    }
-
-    button {
+    .submit-button {
         padding: 8px; /* Reduce button padding */
+        font-size: 0.8rem; /* Smaller button font */
     }
 }
