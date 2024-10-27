@@ -1,223 +1,232 @@
 /* Body and container styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: lightgray; /* Light background for contrast */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
-    display: flex; /* Use flexbox for body layout */
-    justify-content: center; /* Center container horizontally */
-    align-items: center; /* Center container vertically */
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
-    width: 90%; /* Adjust width for larger screens */
-    max-width: 800px; /* Maximum width for larger screens */
-    height: 100vh; /* Full height of the viewport */
-    margin: 0 auto; /* Center the container */
-    padding: 20px; /* Padding around the content */
-    overflow-y: auto; /* Enable scrolling if content overflows */
-    background-color: #b5eee4; /* Light background for the container */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 90%;
+    max-width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #b5eee4;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Heading styles */
 h1 {
-    font-size: 2.5rem; /* Responsive font size */
-    color: #333; /* Darker text for the heading */
+    font-size: 2.5rem;
+    color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Search Input Styles */
 #search-input {
-    width: 80%; /* Full width to match the container */
-    padding: 10px; /* Padding inside the input */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 4px; /* Slightly rounded corners */
-    font-size: 1rem; /* Font size for readability */
-    margin-bottom: 20px; /* Space below the search input */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: border-color 0.3s; /* Smooth transition for border color on focus */
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
 }
 
 #search-input:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove default outline */
+    border-color: #007bff;
+    outline: none;
 }
 
 /* Anchor link styles */
 a {
     text-decoration: none;
-    color: #007bff; /* Bootstrap primary color */
+    color: #007bff;
 }
 
 /* General button styles */
 button {
-    padding: 10px 15px; /* Adjusted padding for buttons */
+    padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem; /* Responsive font size */
+    font-size: 1rem;
     transition: background-color 0.1s;
-    margin-left: 10px; /* Space between buttons */
+    margin-left: 10px;
 }
 
 /* Create Button Styles */
 .create-button {
-    background-color: green; /* Green color for create button */
-    color: white; /* White text for the button */
+    background-color: green;
+    color: white;
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Circular button */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
 }
 
 .create-button:hover {
-    background-color: darkgreen; /* Darker color on hover */
+    background-color: darkgreen;
 }
 
 .create-button i {
-    font-size: 1.5rem; /* Icon size */
-    color: white; /* Icon color */
+    font-size: 1.5rem;
+    color: white;
 }
 
 /* Success message styling */
 .success-message {
-    background-color: #d4edda; /* Light green background */
-    color: #05270d; /* Dark green text */
+    background-color: #d4edda;
+    color: #05270d;
     padding: 10px;
-    border: 1px solid #c3e6cb; /* Green border */
+    border: 1px solid #c3e6cb;
     border-radius: 4px;
-    margin-bottom: 20px; /* Space below the success message */
+    margin-bottom: 20px;
 }
 
 /* Style for the list of notes */
 ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 li {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between title and delete button */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 15px; /* Space between notes */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 li a {
-    display: block; /* Make the link fill the entire list item */
-    background-color: #ffffff; /* White background for each note */
+    display: block;
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effect */
-    flex: 1; /* Allow the link to grow and take available space */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 1;
 }
 
 li a:hover {
-    transform: translateY(-2px); /* Slight lift effect on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Title and content styles */
 .note-title {
-    font-weight: bold; /* Make title bold */
+    font-weight: bold;
     color: #333;
-    font-size: 1.75rem; /* Responsive font size */
+    font-size: 1.75rem;
 }
 
 p {
-    margin: 5px 0; /* Space between paragraphs */
-    color: #555; /* Gray color for additional text */
+    margin: 5px 0;
+    color: #555;
 }
 
 /* Button container styles */
 .fixed-button-container {
-    position: fixed; /* Keep button fixed on screen */
-    bottom: 20px; /* Position button 20px from bottom */
-    left: 50%; /* Horizontal center */
-    transform: translateX(-50%); /* Center button horizontally */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Ensure button is above all content */
+    z-index: 1000;
 }
 
 /* Delete button styles */
-.delete-container {
-    margin-left: auto; /* Push delete button to the right */
-}
-
 .delete-button {
-    background-color: transparent; /* Make button background transparent */
-    border: none; /* Remove default border */
-    cursor: pointer; /* Pointer cursor on hover */
-    color: #b34646; /* Red color for delete icon */
-    transition: color 0.3s; /* Smooth transition for color */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #b34646;
+    transition: color 0.3s;
 }
 
 .delete-button:hover {
-    color: darkred; /* Darker red on hover */
+    color: darkred;
+}
+
+/* Edit button styles */
+.edit-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #4a90e2; /* Blue color for edit icon */
+    transition: color 0.3s;
+}
+
+.edit-button:hover {
+    color: #0056b3; /* Darker blue on hover */
 }
 
 /* Responsive Styles */
 @media (max-width: 800px) {
     .container {
-        width: 95%; /* Full width for smaller screens */
-        height: 100vh; /* Full height for smaller screens */
-        padding: 15px; /* Reduce padding */
+        width: 95%;
+        height: 100vh;
+        padding: 15px;
     }
 
     h1 {
-        font-size: 2rem; /* Smaller heading on medium devices */
+        font-size: 2rem;
     }
 
     .create-button {
-        width: 45px; /* Adjust button size for smaller screens */
+        width: 45px;
         height: 45px;
     }
 
     .note-title {
-        font-size: 1.5rem; /* Smaller note title */
+        font-size: 1.5rem;
     }
 
     button {
-        font-size: 0.9rem; /* Smaller button text */
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        width: 100%; /* Full width for very small screens */
-        height: 100vh; /* Full height for very small screens */
-        padding: 10px; /* Further reduce padding */
+        width: 100%;
+        height: 100vh;
+        padding: 10px;
     }
 
     h1 {
-        font-size: 1.5rem; /* Even smaller heading on small devices */
+        font-size: 1.5rem;
     }
 
     .create-button {
-        width: 40px; /* Adjust button size */
+        width: 40px;
         height: 40px;
     }
 
     .note-title {
-        font-size: 1.25rem; /* Even smaller note title */
+        font-size: 1.25rem;
     }
 
     p {
-        font-size: 0.875rem; /* Smaller paragraph text */
+        font-size: 0.875rem;
     }
 
     button {
-        font-size: 0.875rem; /* Smaller button text */
+        font-size: 0.875rem;
     }
 }

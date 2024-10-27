@@ -3,27 +3,29 @@ body {
     background-color: #f0f0f0; /* Light gray background */
     margin: 0;
     padding: 0;
-    display: flex; /* Flexbox for layout */
+    min-height: 100vh; /* Ensure full height of the viewport */
+    display: flex; /* Use flexbox for centering */
     justify-content: center; /* Center the container horizontally */
     align-items: center; /* Center the container vertically */
-    min-height: 100vh; /* Ensure full height of the viewport */
 }
 
 .container {
     width: 100%; /* Full width on small screens */
     max-width: 800px; /* Maximum width for larger screens */
-    height: 100%; /* Full height on small screens */
-    max-height: 90vh; /* Limit height on larger screens */
+    height: 100vh; /* Full height on small screens */
     padding: 20px;
     background: #7ddfdf; /* Background color for the container */
+    border: 2px solid #ccc; /* 2px border around the container */
     border-radius: 0; /* No rounding */
-    box-shadow: none; /* No shadow */
     overflow-y: auto; /* Enable scrolling if content overflows */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack elements vertically */
+    box-sizing: border-box; /* Include padding and border in total width/height */
 }
 
 h1 {
     color: #333;
-    font-size: 45px; /* Set font size to 45px */
+    font-size: 3vw; /* Responsive font size */
     margin-bottom: 20px; /* Add space below the title */
     text-align: center; /* Center the text */
 }
@@ -35,19 +37,13 @@ h1 {
 .actions a {
     text-decoration: none;
     color: #061424;
-    margin-right: 0%; /* Increase space between buttons */
     font-size: 10px; /* Text font size */
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Center icons and text vertically */
-    padding: 10px 15px; /* Optional: add padding to make the button area bigger */
+    display: block; /* Block to ensure full clickable area */
+    padding: 10px 0px; /* Optional: add padding to make the button area bigger */
 }
 
 .material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
     font-size: 40px !important; /* Force larger icon size */
     line-height: 1; /* Align icon better with text */
 }
@@ -58,17 +54,15 @@ h1 {
 }
 
 .form-group {
-    display: flex; /* Use flex for alignment */
-    flex-direction: column; /* Stack label and input vertically */
-    align-items: center; /* Center align the label and input horizontally */
+    display: block; /* Keep form group elements stacked */
     margin-bottom: 2px; /* Space below each form group */
+    text-align: center; /* Center align the contents */
 }
 
 label {
     font-weight: bold; /* Make labels bold */
-    font-size: 26px; /* Increase font size for labels */
+    font-size: 1vw; /* Responsive font size for labels */
     margin-bottom: 5px; /* Space below labels */
-    text-align: center; /* Center the text in the label */
     width: 100%; /* Full width to ensure centering */
 }
 
@@ -79,10 +73,22 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box; /* Ensure padding is included in total width */
+    font-size: 1vw; /* Responsive font size for inputs */
 }
 
 textarea {
-    height: 300px; /* Set a fixed height for the textarea */
+    height: calc(68vh - 200px); /* Dynamic height based on viewport height */
+    min-height: 150px; /* Minimum height to prevent overflow on small screens */
+    max-height: 400px; /* Maximum height to prevent overflow on larger screens */
+    resize: none; /* Disable resizing if needed */
+}
+
+.button-container {
+    margin-top: 20px; /* Space above the button container */
+    background: #7ddfdf; /* Match the container's background */
+    padding: 10px; /* Padding for better spacing */
+    display: flex; /* Use flexbox to align buttons in a row */
+    justify-content: space-between; /* Space buttons evenly */
 }
 
 button {
@@ -99,35 +105,30 @@ button:hover {
     background-color: #0abe22af; /* Darker shade for hover effect */
 }
 
-.button-container {
-    display: flex;
-    justify-content: flex-start; /* Adjust the alignment */
-    margin-top: 20px; /* Space above the button container */
-    position: sticky; /* Make the button sticky */
-    bottom: 0; /* Stick to the bottom of the container */
-    background: #7ddfdf; /* Match the container's background */
-    padding: 10px; /* Padding for better spacing */
-    z-index: 10; /* Ensure it stays above other content */
-}
-
 /* Responsive styles */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .container {
         padding: 10px; /* Reduce padding on small screens */
-        max-height: 100vh; /* Full height on small screens */
+        height: 100vh; /* Full height on small screens */
     }
 
     h1 {
-        font-size: 30px; /* Adjust heading size for small screens */
+        font-size: 6vw; /* Responsive heading size */
     }
 
     label {
-        font-size: 20px; /* Smaller label size for small screens */
+        font-size: 4vw; /* Smaller label size for small screens */
     }
 
     input[type="text"],
     textarea {
-        font-size: 14px; /* Adjust input font size for small screens */
+        font-size: 3vw; /* Adjust input font size for small screens */
+    }
+
+    textarea {
+        height: calc(110vh - 450px); /* Adjust height for smaller screens if needed */
+        min-height: 100px; /* Minimum height to prevent overflow on very small screens */
+        max-height: 800px; /* Maximum height to prevent overflow on very small screens */
     }
 
     button {

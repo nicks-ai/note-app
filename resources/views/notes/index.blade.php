@@ -96,8 +96,13 @@
                             <p class="note-created-at">{{ $note->created_at->timezone('Asia/Manila')->format('Y-m-d h:i A') }}</p>
                             <p class="note-content">{{ Str::limit($note->notes, 30) }}</p>  
                         </a>
-                        <div class="delete-container">
-                            <form action="{{ route('notes.destroy', $note->id) }}" method="POST">
+                        <div class="button-container">
+                            <!-- Edit button -->
+                            <a href="{{ route('notes.edit', $note->id) }}" class="edit-button" title="Edit Note">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <!-- Delete button -->
+                            <form action="{{ route('notes.destroy', $note->id) }}" method="POST" class="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="delete-button" title="Delete Note">

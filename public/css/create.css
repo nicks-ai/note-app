@@ -1,33 +1,33 @@
+/* General styles */
 * {
-    box-sizing: border-box; /* Ensure consistent box sizing */
+    box-sizing: border-box; /* Consistent box sizing */
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: lightgray; /* Light gray background */
+    background-color: lightgray;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
 }
 
 .container {
-    display: grid; /* Use grid layout */
-    grid-template-rows: auto 1fr auto; /* Allow header and footer to be automatic height, take remaining space */
-    gap: 20px; /* Space between grid items */
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Layout structure */
+    gap: 20px;
     padding: 20px;
     background: #b5eee4;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Set maximum width for the container */
-    margin: 0 auto; /* Center the container */
-    height: 100vh; /* Full height of the viewport */
-    position: relative; /* Make it a reference for absolute positioning */
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100vh; /* Full height for responsive design */
 }
 
 h1 {
     text-align: center;
-    color: #333333; /* Dark gray text */
-    margin-bottom: 10px; /* Reduce bottom margin */
-    font-size: 2em; /* Responsive title size */
+    color: #333333;
+    font-size: 4vw; /* Responsive font size based on viewport width */
+    margin-bottom: 10px;
 }
 
 .back-link-container {
@@ -35,26 +35,25 @@ h1 {
 }
 
 .back-link {
-    color: #4A90E2; /* Blue accent color */
+    color: #4A90E2;
     text-decoration: none;
-    font-size: 1.5em; /* Increased font size for the back link */
-    padding: 10px 15px; /* Add padding for better touch targets */
-    border: 2px solid #4A90E2; /* Add border for emphasis */
-    border-radius: 5px; /* Rounded corners for the button look */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    font-size: 2vw; /* Responsive font size */
+    padding: 10px; /* Padding for back button */
+    border: 2px solid #4A90E2;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .back-link:hover {
-    background-color: #4A90E2; /* Change background on hover */
-    color: white; /* Change text color on hover */
-    text-decoration: none; /* Remove underline on hover */
+    background-color: #4A90E2;
+    color: white;
 }
 
 .alert {
-    background-color: #FF6B6B; /* Light red background for alerts */
-    color: #721c24; /* Dark text for contrast */
+    background-color: #FF6B6B;
+    color: #721c24;
     padding: 10px;
-    margin: 0; /* Remove margin */
+    margin: 0;
     border: 1px solid #f5c6cb;
     border-radius: 5px;
 }
@@ -64,112 +63,105 @@ h1 {
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
     font-weight: bold;
-    color: #555; /* Slightly lighter gray */
+    color: #555;
+    font-size: 1.5vw; /* Responsive font size */
 }
 
-input[type="text"],
-textarea {
+input[type="text"] {
     width: 100%;
-    padding: 10px;
+    padding: 10px; /* Padding for input */
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
 }
 
-input[type="text"]:focus,
-textarea:focus {
-    border-color: #4A90E2; /* Blue accent on focus */
-    outline: none;
-}
-
+/* Textarea to fill full viewport height and width */
 textarea {
-    resize: none; /* Prevents resizing */
-    height: 250px; /* Fixed height */
-    overflow-y: auto; /* Add vertical scrolling */
-    margin-bottom: 50px; /* Add space below the textarea */
-}
-
-.counter-container {
-    display: flex; /* Use flex for alignment */
-    justify-content: flex-start; /* Align left */
-    margin-bottom: 10px; /* Space below character count */
+    width: 100%; /* Full width */
+    height: 27vh; /* Full height */
+    padding: 10px; /* Padding for textarea */
+    margin-bottom: 20px; /* Space between textarea and buttons */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* Disable resizing */
 }
 
 #charCount {
-    margin: 0; /* Remove margin */
-    font-size: 12px;
-    color: #555; /* Slightly lighter gray */
-}
-
-.button-container {
-    display: flex;
-    justify-content: center; /* Centers the button */
-    position: absolute; /* Positioning the button absolutely */
-    bottom: 15px; /* Keep the button at the bottom */
-    left: 20px; /* Add left padding */
-    right: 20px; /* Add right padding */
+    font-size: 1.2vw; /* Responsive font size */
+    color: #555;
 }
 
 .submit-button {
-    background-color: #007BFF; /* Bright blue for buttons */
+    background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 15px; /* Uniform padding */
+    padding: 10px; /* Keep padding consistent */
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 750px; /* Limit max width */
     cursor: pointer;
-    font-size: 16px; /* Responsive font size */
-    width: 100%; /* Full width */
+    font-size: 1.5vw; /* Responsive font size */
     transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 #limitWarning {
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 1.2vw; /* Responsive font size */
+    color: red;
 }
 
 /* Responsive styles */
 @media (max-width: 1000px) {
     .container {
-        width: 100%; /* Adjust width on smaller screens */
-        height: 100vh; /* Keep height full on smaller screens */
+        width: 90%; /* Slightly reduce width for smaller screens */
+        height: 100vh; /* Ensure full height */
+        overflow-y: auto; /* Allow scrolling if content exceeds max height */
     }
 
     h1 {
-        font-size: 1.5em; /* Adjust heading size */
+        font-size: 6vw; /* Adjust heading size */
     }
 
     .back-link {
-        font-size: 1.2em; /* Smaller font size for back link */
-        padding: 8px 12px; /* Adjust padding for smaller screens */
+        font-size: 2vw; /* Adjust back link size */
+    }
+
+    /* Adjust textarea height for medium screens */
+    textarea {
+        height: calc(70vh - 70px); /* Adjust height for smaller screens if needed */
+    }
+
+    .submit-button {
+        width: 100%; /* Full width for smaller screens */
     }
 }
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 1.3em; /* Further adjust heading size for smaller devices */
+        font-size: 8vw; /* Smaller heading on very small screens */
+    }
+
+    .back-link {
+        font-size: 2vw; /* Smaller back link size */
     }
 
     .submit-button {
-        padding: 10px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Smaller font size for button */
+        font-size: 3vw; /* Smaller font size for the button */
     }
 
-    textarea {
-        height: 250px; /* Reduce height of textarea on small screens */
+    label {
+        font-size: 2vw; /* Smaller label size */
     }
-}
 
-/* Grid layout for larger screens */
-@media (min-width: 600px) {
-    .container {
-        grid-template-columns: 1fr; /* Maintain single column layout */
+    input[type="text"] {
+        padding: 10px; /* Ensure consistent padding */
+    }
+
+    #charCount {
+        font-size: 2vw; /* Smaller character count */
     }
 }
