@@ -93,7 +93,7 @@
                     <li>
                         <a href="{{ route('notes.show', $note->id) }}" class="note-link">
                             <div class="note-title">{{ $note->title }}</div>
-                            <p class="note-created-at">{{ $note->created_at->format('Y-m-d h:i A') }}</p>
+                            <p class="note-created-at">{{ $note->created_at->timezone('Asia/Manila')->format('Y-m-d h:i A') }}</p>
                             <p class="note-content">{{ Str::limit($note->notes, 30) }}</p>  
                         </a>
                         <div class="delete-container">

@@ -1,108 +1,175 @@
-/* Body and container styles */
+* {
+    box-sizing: border-box; /* Ensure consistent box sizing */
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0; /* Light background for contrast */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
-    display: flex; /* Use flexbox for body layout */
-    justify-content: center; /* Center container horizontally */
-    align-items: center; /* Center container vertically */
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    font-family: Arial, sans-serif;
+    background-color: lightgray; /* Light gray background */
+    margin: 0;
+    padding: 20px;
 }
 
 .container {
-    width: 100%; /* Set to full width */
-    max-width: 800px; /* Maximum width for larger screens */
-    height: 98vh; /* Set to full height of the viewport */
+    display: grid; /* Use grid layout */
+    grid-template-rows: auto 1fr auto; /* Allow header and footer to be automatic height, take remaining space */
+    gap: 20px; /* Space between grid items */
+    padding: 20px;
+    background: #b5eee4;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Set maximum width for the container */
     margin: 0 auto; /* Center the container */
-    background-color: #69dac9; /* Background color for the container */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 20px; /* Padding inside the container */
-    display: flex; /* Flexbox for vertical alignment */
-    flex-direction: column; /* Stack children vertically */
-    overflow: hidden; /* Hide overflow */
+    height: 100vh; /* Full height of the viewport */
+    position: relative; /* Make it a reference for absolute positioning */
 }
 
-.note-form {
-    display: grid; /* Set the form to use grid layout */
-    grid-template-columns: 1fr; /* One column layout */
-    gap: 15px; /* Space between items */
-    flex-grow: 1; /* Allow form to take available space */
-    overflow-y: auto; /* Allow vertical scrolling if content exceeds */
-}
-
-/* Text and button styles */
 h1 {
-    color: #333; /* Dark text color for heading */
-    font-size: 2.5rem; /* Responsive font size */
-    text-align: center; /* Center the heading */
-    margin-bottom: 20px; /* Space below heading */
+    text-align: center;
+    color: #333333; /* Dark gray text */
+    margin-bottom: 10px; /* Reduce bottom margin */
+    font-size: 2em; /* Responsive title size */
+}
+
+.back-link-container {
+    text-align: left;
+}
+
+.back-link {
+    color: #4A90E2; /* Blue accent color */
+    text-decoration: none;
+    font-size: 1.5em; /* Increased font size for the back link */
+    padding: 10px 15px; /* Add padding for better touch targets */
+    border: 2px solid #4A90E2; /* Add border for emphasis */
+    border-radius: 5px; /* Rounded corners for the button look */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+.back-link:hover {
+    background-color: #4A90E2; /* Change background on hover */
+    color: white; /* Change text color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.alert {
+    background-color: #FF6B6B; /* Light red background for alerts */
+    color: #721c24; /* Dark text for contrast */
+    padding: 10px;
+    margin: 0; /* Remove margin */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555; /* Slightly lighter gray */
 }
 
 input[type="text"],
 textarea {
-    width: 100%; /* Full width inputs */
-    padding: 10px; /* Padding for inputs */
-    border: 1px solid #ccc; /* Border for inputs */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 1rem; /* Responsive font size */
-    text-align: left; /* Align text to the left */
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #4A90E2; /* Blue accent on focus */
+    outline: none;
 }
 
 textarea {
-    min-height: 20vh; /* Minimum height of 20% of viewport height */
-    max-height: 50vh; /* Maximum height of 50% of viewport height */
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    resize: none; /* Prevents resizing */
+    height: 250px; /* Fixed height */
+    overflow-y: auto; /* Add vertical scrolling */
+    margin-bottom: 50px; /* Add space below the textarea */
 }
 
-/* Focus styles */
-textarea:focus, 
-input[type="text"]:focus {
-    border-color: #007bff; /* Border color on focus */
-    outline: none; /* Remove outline */
+.counter-container {
+    display: flex; /* Use flex for alignment */
+    justify-content: flex-start; /* Align left */
+    margin-bottom: 10px; /* Space below character count */
 }
 
-/* Button styles */
+#charCount {
+    margin: 0; /* Remove margin */
+    font-size: 12px;
+    color: #555; /* Slightly lighter gray */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers the button */
+    position: absolute; /* Positioning the button absolutely */
+    bottom: 15px; /* Keep the button at the bottom */
+    left: 20px; /* Add left padding */
+    right: 20px; /* Add right padding */
+}
+
 .submit-button {
-    position: sticky; /* Make the button sticky */
-    bottom: 0; /* Stick it to the bottom of the container */
-    background-color: green; /* Button background color */
-    color: white; /* Button text color */
-    padding: 0; /* Padding for button */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor for button */
-    font-size: 1rcap; /* Responsive font size */
-    transition: background-color 0.3s; /* Smooth transition */
-    margin-top: 20px; /* Space above the button */
+    background-color: #007BFF; /* Bright blue for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px; /* Uniform padding */
+    cursor: pointer;
+    font-size: 16px; /* Responsive font size */
+    width: 100%; /* Full width */
+    transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-    background-color: darkgreen; /* Darker button on hover */
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Responsive design */
-@media (max-width: 1200px) {
-    h1 {
-        font-size: 2rem; /* Slightly smaller for medium screens */
+#limitWarning {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* Responsive styles */
+@media (max-width: 1000px) {
+    .container {
+        width: 100%; /* Adjust width on smaller screens */
+        height: 100vh; /* Keep height full on smaller screens */
     }
-}
 
-@media (max-width: 800px) {
     h1 {
-        font-size: 1.8rem; /* Smaller for smaller screens */
+        font-size: 1.5em; /* Adjust heading size */
+    }
+
+    .back-link {
+        font-size: 1.2em; /* Smaller font size for back link */
+        padding: 8px 12px; /* Adjust padding for smaller screens */
     }
 }
 
 @media (max-width: 600px) {
-    body {
-        padding: 10px; /* Reduce padding for smaller screens */
+    h1 {
+        font-size: 1.3em; /* Further adjust heading size for smaller devices */
     }
 
     .submit-button {
-        padding: 8px; /* Reduce button padding */
-        font-size: 0.8rem; /* Smaller button font */
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size for button */
+    }
+
+    textarea {
+        height: 250px; /* Reduce height of textarea on small screens */
+    }
+}
+
+/* Grid layout for larger screens */
+@media (min-width: 600px) {
+    .container {
+        grid-template-columns: 1fr; /* Maintain single column layout */
     }
 }

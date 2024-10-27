@@ -94,24 +94,4 @@ class NoteController extends Controller
 
         return redirect()->route('notes.index')->with('success', 'Note deleted successfully!'); // Redirect with a success message
     }
-
-    // Delete all notes from the database
-    public function destroyAll()
-    {
-        Note::truncate(); // Remove all notes
-        return redirect()->route('notes.index')->with('success', 'All notes deleted successfully!'); // Redirect with a success message
-    }
-
-    // Delete selected notes from the database
-    public function destroySelected(Request $request)
-    {
-        $selectedNotes = $request->input('selected_notes'); // Get selected notes from the request
-
-        if ($selectedNotes && is_array($selectedNotes)) {
-            Note::destroy($selectedNotes); // Delete the selected notes
-            return redirect()->route('notes.index')->with('success', 'Selected notes have been deleted successfully.');
-        }
-
-        return redirect()->route('notes.index')->with('error', 'No notes were selected for deletion.'); // Redirect with error if no notes are selected
-    }
 }
