@@ -130,7 +130,7 @@ li a:hover {
 .note-title {
     font-weight: bold;
     color: #333;
-    font-size: 1.75rem;
+    font-size: 1rem;
 }
 
 p {
@@ -194,7 +194,7 @@ p {
     }
 
     .note-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     button {

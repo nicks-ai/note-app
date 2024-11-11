@@ -34,8 +34,9 @@
             @method('PUT')
             
             <div class="form-group">
+            <div id="limitWarning" style="color: red; display: none;">You have reached the 10,000 character limit!</div>
             <label id="title-label" for="title">Title</label>
-                <input type="text" id="title" name="title" value="{{ old('title', $note->title) }}" required>
+                <input type="text" id="title" name="title" value="{{ old('title', $note->title) }}">
             </div>
 
             <div class="form-group">
@@ -44,7 +45,6 @@
             </div>
 
             <div id="charCount">0/10000</div> <!-- Display character count -->
-            <div id="limitWarning" style="color: red; display: none;">You have reached the 10,000 character limit!</div>
 
             <div class="button-container">
                 <button type="submit">Update</button>

@@ -30,6 +30,7 @@
             @csrf
             
             <div class="form-group">
+                <div id="limitWarning" style="color: red; display: none;">You have reached the 10,000 character limit!</div>
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" placeholder="Title" value="{{ old('title') }}" >
                 
@@ -40,7 +41,7 @@
             </div>
             
             <button type="submit" class="submit-button">Create</button>
-            <div id="limitWarning" style="color: red; display: none;">You have reached the 10,000 character limit!</div>
+            
         </form>
     </div>
 

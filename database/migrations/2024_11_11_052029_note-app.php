@@ -7,16 +7,11 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run th     migrations.
+     * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create(  'notes', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('notes');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -24,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        //
     }
 };
